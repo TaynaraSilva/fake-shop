@@ -6,7 +6,7 @@ on:
 
 jobs:
   CI:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Obtendo o Codigo
         uses: actions/checkout@v4.2.2
@@ -21,10 +21,10 @@ jobs:
           context: ./src
           push: true
           file: ./src/Dockerfile
-          tags: tayanrasilva/fake-shop-desafio:v2
+          tags: tayanrasilva/fake-shop-desafio:v${{ github.run_numer}}
 
   CD:
     needs: [CI]
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
        - run: echo "Teste" 
